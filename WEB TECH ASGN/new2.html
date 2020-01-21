@@ -1,0 +1,275 @@
+<html>
+    <style>
+     
+       .product {
+            float: left;
+            width: 50%;
+            padding: 2%;
+            margin-left: 2%;
+            border-radius: 5%;
+            font-size: x-large;
+        }
+
+        .cartitem {
+            height: 20%;
+            margin-bottom: 4%;
+        }
+
+        .item {
+            height: 20%;
+            margin-bottom: 4%;
+            border-radius: 8%;
+        }
+
+        .image {
+           
+            float: left;
+            
+        }
+
+        .productinfo {
+            margin-left: 2%;
+            float: left;
+            width: 35%;
+            height: 100%;
+        }
+
+        .quantityinfo {
+            float: right;
+            width: 30%;
+            height: 80%;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .btnaddtocart {
+            float: none;
+            margin-left: 7%;
+            width: 30%;
+            height: 25%;
+            vertical-align: bottom;
+
+        }
+
+        .cartinfo {
+            float: left;
+            width: 60%;
+            height: 50%;
+            margin-bottom: 5%;
+      
+        }
+
+
+        .add {
+            width: 100%;
+            height: 40%;
+            border-radius: 8%;
+        }
+
+       
+
+        .total {
+            margin-right: 5%;
+            text-align: right;
+            font-size: xx-large;
+           
+        }
+        * {
+        box-sizing :border-box ;
+        }
+         #container{
+        box-sizing :border-box ;
+        width: 100%;
+
+        }
+         #leftside{
+        width: 50%;
+        float: left;
+        height: 70%;
+        background-color: blanchedalmond;
+        }
+        #productlist{
+        width:50%;
+        float: left;
+        background-color: cadetblue;
+        }
+       
+    
+
+    </style>
+    <script>
+        var x = 0;
+        var cart = [];
+        var cartTotal = 0;
+        var hr = document.createElement("hr");
+        function add(){
+            let files1 = document.getElementById("img").files;
+            if(files1 && files1.length){
+                var fr = new FileReader();
+                fr.onload = new function(){
+                    x++;
+                    var div = document.createElement('div');
+                    var img = document.createElement('img');
+                    var infoDiv = document.createElement('div');
+                    var qtyDiv = document.createElement('div');
+                    var button = document.createElement('button');
+                    var productName = document.createElement('p');
+                   
+                    var productPrice = document.createElement('p');
+                    var productQty = document.createElement('p');
+                    productName.id = "name" + x;
+                    productPrice.id = "price" + x;
+                    productQty.id = "quant" + x;
+                    img.id = "img" + x;
+                    button.id = x;
+                    productName.innerHTML = document.getElementById("name").value;
+                    
+                    productPrice.innerHTML = document.getElementById("price").value+"$";
+                    productQty.innerHTML = document.getElementById("quant").value+" Qty";
+                    button.innerHTML = "Cart?";
+                    div.classList.add("item");
+                    img.src = fr.result;
+                    img.classList.add("image");
+                    button.classList.add("btnaddtocart");
+                    infoDiv.classList.add("productinfo");
+                    qtyDiv.classList.add("quantityinfo");
+                    button.onclick = function () {
+                        addcart();
+                    }
+                    div.append(img);
+                    infoDiv.append(productName);
+                    
+                    div.append(infoDiv);
+                    qtyDiv.append(productPrice);
+                    qtyDiv.append(productQty);
+                    div.append(qtyDiv);
+                    div.append(button);
+                    document.getElementById("productlist").append(div);
+                    var hr = document.createElement("hr");
+                    div.append(hr);
+                }
+                fr.readAsDataURL(files1[0]);
+            }
+        }
+        function addcart(){
+            if (cart.indexOf(x) > -1) {
+                var productQty = document.getElementById("quant" + x).innerHTML;
+                var qty = parseFloat(productQty);
+                if (qty > 0) {
+                    document.getElementById("quant" + x).innerHTML = qty - 1+" Qty";
+                    var productPrice = document.getElementById("price" + x).innerHTML;
+                    var total = document.getElementById("total" + x).innerHTML;
+                    var newtotal = parseFloat(total) + parseFloat(productPrice);
+                    cartTotal+=parseFloat(productPrice);
+                    document.getElementById("total" + x).innerHTML = newtotal+"$";
+                    document.getElementById("cartqty" + x).value = newtotal / parseFloat(productPrice);
+                    document.getElementById('total').innerHTML = "Total " + cartTotal + "$";
+                } else {
+                    alert("Sorry Product Out of stock");
+                }
+            } else {
+                cart.push(x);
+                var productName = document.getElementById("name" + x).innerHTML;
+                var productPrice = document.getElementById("price" + x).innerHTML;
+                var productQty = document.getElementById("quant" + x).innerHTML;
+                document.getElementById("quant" + x).innerHTML = parseFloat(productQty) - 1+" Qty";
+                var image = document.getElementById("img" + x).src
+                var div = document.createElement('div');
+                var totalDiv = document.createElement('div');
+                var img = document.createElement('img');
+                var infoDiv = document.createElement('div');
+                var nameDiv = document.createElement('div');
+                var priceDiv = document.createElement('div');
+                var qtyDiv = document.createElement('div');
+                var btnDiv = document.createElement('div');
+                var delButton = document.createElement('button');
+                var updButton = document.createElement('button');
+                var input = document.createElement('input');
+                div.classList.add("cartitem");
+                img.classList.add("image");
+                infoDiv.classList.add("cartinfo");
+                totalDiv.classList.add("cartitemtotal");
+                input.id = "cartqty" + x;
+                totalDiv.id = "total" + x;
+                delButton.id = "remove" + x;
+                div.id = "remove" + x + "delete";
+                nameDiv.innerHTML = productName;
+                priceDiv.innerHTML = productPrice;
+
+                delButton.innerHTML = "Delete";
+                delButton.onclick = function () {
+                    removeElement(this.id);
+                }
+                updButton.innerHTML = "Update";
+                totalDiv.innerHTML = productPrice;
+                qtyDiv.innerHTML = "QTY:-";
+                input.value = "1";
+                img.src = image;
+                div.append(img);
+                infoDiv.append(nameDiv);
+                infoDiv.append(priceDiv);
+                infoDiv.append(qtyDiv);
+                btnDiv.append(delButton);
+                qtyDiv.append(input);
+                infoDiv.append(btnDiv);
+                div.append(infoDiv);
+                div.append(totalDiv);
+                document.getElementById('cart').append(div);
+                cartTotal += parseFloat(productPrice);
+                document.getElementById('total').innerHTML = "Total " + cartTotal + "$";
+                var hr = document.createElement("hr");
+                    div.append(hr);
+            }
+        }
+        function removeElement(elementId) {
+            var id = elementId;
+            id = id.substring(6);
+            cart = arrayRemove(cart, id);
+            var qty = document.getElementById("quant"+id).innerHTML;
+            var cartqty = document.getElementById("cartqty"+id).value;
+            document.getElementById("quant"+id).innerHTML= parseFloat(cartqty)+parseFloat(qty)+" Qty";
+            var itemTotal=document.getElementById("total"+id).innerHTML;
+           cartTotal =cartTotal-parseFloat(itemTotal);
+           document.getElementById('total').innerHTML = "Total " + cartTotal + "$";
+            var element = document.getElementById(elementId + "delete");
+            element.parentNode.removeChild(element);
+
+        }
+        function arrayRemove(arr, value) {
+
+            return arr.filter(function (ele) {
+                return ele != value;
+            });
+
+        }
+        
+
+    </script>
+
+    <body>
+        <header style="text-align: center; background-color: blue ;font-family: sans-serif;padding: 2px;"><h1><b><u>MY SHOPING CART </u></b></h1></header>
+        <div id="container">
+            <div id = "leftside">
+                <header><h3 style="text-align: center;"><b>ADD list </b></h3></header>
+                PRODUCT NAME: <input type="text" id="name"><br> <br>
+                PRODUCT Price: <input type="number" id="price"><br><br>
+                PRODUCT quan: <input type="number" id="quant"><br>   <br>     
+                Image: <input type="file" accept=".jpg , .jpeg , .png"  id="img" alt="image here" > <br><br>
+                <p>
+                    <button id="bt" onclick="add()"> Clickk
+                    </button>                   <input type="reset" value="reset">
+                </p>
+
+            </div>
+            
+            <div id = "productlist" >
+                <h3 style="text-align: center;"><b>Cart</b></h3>
+        </div>
+           <div id ="cart" style="background-color: brown;">
+            <hr>
+              </div> 
+           <div id="total" style="background-color: blanchedalmond;">
+
+           </div>
+    </body>
+</html>
