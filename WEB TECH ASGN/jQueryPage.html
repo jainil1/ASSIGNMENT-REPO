@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title> YOUR QUIZ !!</title>
+    </head>
+    <style>
+      
+        .container{
+            text-align: center;
+                margin-top: 100px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                padding: 10px;
+        }
+        .container:hover input ~ .q1{
+            background-color: blue;
+          }
+          .container input:checked ~ .q1{
+            background-color: #2196F3;
+          }
+          
+        input[type=radio]{
+            margin-top: 10px;
+            font-size: large;
+           font-style: italic;
+        }
+        input[type=button]{
+            margin:20px;
+        }
+        
+    </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script  >
+        var total=0;
+        $(document).ready(function(){
+             $(".q2").hide(); $(".q3").hide(); $(".q4").hide(); $(".q5").hide();$("#bt").hide();
+        });
+      
+        function myfun1(){
+            $("#bt").hide();
+            $(".q1").hide(); $(".q3").hide(); $(".q4").hide(); $(".q5").hide();$(".q2").show();
+            var v = document.getElementById('a1');
+            if(v.checked){
+               
+
+                total++;
+            }
+          
+        }
+        function myfun2(){
+            $("#bt").hide();
+            $(".q1").hide(); $(".q2").hide(); $(".q4").hide(); $(".q5").hide();$(".q3").show();
+            var v = document.getElementById('b2');
+            if(v.checked){
+                $("#bt").hide();
+
+                total++;
+            }
+           
+        }
+        function myfun3(){
+            $("#bt").hide();
+            $(".q1").hide(); $(".q2").hide(); $(".q3").hide(); $(".q5").hide();$(".q4").show();
+            var v = document.getElementById('c3');
+            if(v.checked){
+               
+
+                total++;
+            }
+           
+            
+        }
+        function myfun4(){
+            $("#bt").hide();
+            $(".q1").hide(); $(".q3").hide(); $(".q2").hide(); $(".q4").hide();$(".q5").show();
+            var v = document.getElementById('d4');
+            if(v.checked){
+               
+
+                total++;
+            }
+            
+            
+            
+
+        }
+        function myfun5(){
+            var v = document.getElementsByName('qa5').value;
+            var v = document.getElementById('e1');
+            if(v.checked){
+               
+
+                total++;
+            }
+           
+            $(".q1").hide(); $(".q3").hide(); $(".q4").hide(); $(".q2").hide();$(".q5").hide();
+            document.getElementById('total').innerHTML="<p> TOTAL ="+total +"out of 5" ;
+                $("#bt").show();
+        }
+    </script>
+
+<body >
+    <div class="container">
+        <div class="q1">
+            <p>Quetsion 1</p>
+            <input type="radio"  name="qa1" id="a1" value=" ans1">1
+            <input type="radio" name="qa1"  id="a2"value=" ans2">2
+            <input type="radio" name="qa1"  id="a3" value=" ans3">3
+            <input type="radio" name="qa1"  id="a4" value=" ans4">4
+            <br>
+            <input type="button" onclick="myfun1()" value="next ?">
+        </div>
+        <div class="q2">
+            <p>Quetsion 2</p>
+            <input type="radio" name="qa2" id="b1" value=" ans1">1
+            <input type="radio" name="qa2"  id="b2" value=" ans2">2
+            <input type="radio" name="qa2"  id="b3" value=" ans3">3
+            <input type="radio" name="qa2"  id="b4" value="  ans4">4
+            <br>
+            <input type="button" onclick="myfun2()" value="next ?">
+            
+        </div>
+        <div class="q3">
+            <p>Quetsion 3</p>
+            <input type="radio" name="qa3" id="c1"value=" ans1">1
+            <input type="radio" name="qa3"  id="c2" value=" ans2">2
+            <input type="radio" name="qa3"  id="c3" value=" ans3">3
+            <input type="radio" name="qa3"  id="c4" value=" ans1">4
+            <br>
+            <input type="button" onclick="myfun3()" value="next ?">
+        </div>
+        <div class="q4">
+            <p>Quetsion 4</p>
+            <input type="radio" name="qa4" id="d1" value=" ans1">1
+            <input type="radio" name="qa4"  id="d2" value=" ans2">2
+            <input type="radio" name="qa4"  id="d3" value=" ans3">3
+            <input type="radio" name="qa4"  id="d4"value=" ans4">4
+            <br>
+            <input type="button" onclick="myfun4()" value="next ?">
+        </div>
+        <div class="q5">
+            <p>Quetsion 5</p>
+            <input type="radio" name="qa5" id="e1" value=" ans1">1
+            <input type="radio" name="qa5"  id="e2"value=" ans2">2
+            <input type="radio" name="qa5"  id="e3" value=" ans3">3
+            <input type="radio" name="qa5"  id="e4" value=" ans4">4
+            <br>
+            <input type="button" onclick="myfun5()" value="end ?">
+        </div>
+        <br>
+
+        <input type="button" value="AGAIN??" id="bt" onclick="location.reload()">
+
+        <br>
+        <p>
+            <h1 id ="total">  </h1>
+        </p>
+
+    </div>
+</body>
+
+</html>
