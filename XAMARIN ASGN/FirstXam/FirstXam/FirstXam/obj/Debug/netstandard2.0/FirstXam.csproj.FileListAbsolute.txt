@@ -1,0 +1,15 @@
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\FirstXam.csprojAssemblyReference.cache
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\FirstXam.AssemblyInfoInputs.cache
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\FirstXam.AssemblyInfo.cs
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\FirstXam.dll
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\ref\FirstXam.dll
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\FirstXam.pdb
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\bin\Debug\netstandard2.0\FirstXam.deps.json
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\bin\Debug\netstandard2.0\FirstXam.dll
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\bin\Debug\netstandard2.0\ref\FirstXam.dll
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\bin\Debug\netstandard2.0\FirstXam.pdb
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\Page1.xaml.g.cs
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\Page2.xaml.g.cs
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Jainil Shah\source\repos\FirstXam\FirstXam\FirstXam\obj\Debug\netstandard2.0\XamlC.stamp
